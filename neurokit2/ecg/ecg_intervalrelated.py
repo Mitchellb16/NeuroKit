@@ -128,6 +128,6 @@ def _ecg_intervalrelated_hrv(data, sampling_rate, output={}):
     results = hrv(rpeaks, sampling_rate=sampling_rate)
     for column in results.columns:
         # Add and convert to float
-        output[column] = results[[column]].values
+        output[column] = results[column].to_numpy()[0]
 
     return output
